@@ -1,0 +1,5 @@
+server:
+  port: 8082
+
+app:
+  offerProviderUrl: http://data-provider-service:8081/traveloffers?source={source}&destination={destination}

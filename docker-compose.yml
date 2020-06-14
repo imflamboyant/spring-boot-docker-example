@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  data-provider-service:
+    container_name: data-provider-service
+    image: data-provider-service
+    build: ./data-provider-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - database
+  front-api:
+    container_name: front-api
+    image: front-api
+    build: ./front-api
+    ports:
+      - "8082:8082"
+  database:
+    image: "postgres"
+    environment:
+      - POSTGRES_PASSWORD=demo
+    ports:
+      - "5432:5432"
